@@ -1,7 +1,7 @@
 document.addEventListener('DOMContentLoaded', ()=>{
   // find .grid in html doc and assign to 'grid'
   const grid = document.querySelector('.grid');
-  // select all squares in grid and convert to array and assign to 'squares'
+  // select all squares (divs) in grid and convert to array and assign to 'squares'
   let squares = Array.from(document.querySelectorAll('.grid div'));
   const scoreDisplay = document.querySelector('#score');
   const startBtn = document.querySelector('#start-button');
@@ -98,15 +98,18 @@ document.addEventListener('DOMContentLoaded', ()=>{
 
   //assign function to keyCodes
   function control(e) {
-    if(e.keyCode === 37){
-      moveLeft()
-    } else if (e.keyCode === 38){
-      rotate()
-    } else if (e.keyCode === 39){
-      moveRight()
-    } else if (e.keyCode === 40){
-      moveDown()
+    if(timerId){
+      if(e.keyCode === 37){
+        moveLeft()
+      } else if (e.keyCode === 38){
+        rotate()
+      } else if (e.keyCode === 39){
+        moveRight()
+      } else if (e.keyCode === 40){
+        moveDown()
+      }
     }
+      
   }
   document.addEventListener('keydown', control)
 
